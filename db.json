@@ -1,0 +1,23 @@
+{
+  "productCart": [
+    {
+      "fullname": "Nhân viên A",
+      "phone": "0353030076",
+      "address": "Thành phố Hà Nội-Quận Hoàn Kiếm-Phường Phúc Tân",
+      "id": "14203",
+      "date": "23/1/2023",
+      "message": "undefined",
+      "total": "400000",
+      "listOrderProduct": [
+        {
+          "id": 1,
+          "name": "Giày Thể Thao Nam AG0156",
+          "price": 400000,
+          "quantity": 7,
+          "img": "./img/giay2.jpg",
+          "soLuong": 6
+        }
+      ]
+    }
+  ]
+}

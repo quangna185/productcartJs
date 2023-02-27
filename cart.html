@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script defer src="./home.js"></script>
+    <script defer src="./info.js"></script>
+    <script defer src="./cart.js"></script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <!-- logo -->
+          <div class="navbar__logo">
+            <img src="./img//Nike.jpg" alt="" />
+            <p>Nike</p>
+          </div>
+          <!-- link -->
+          <div class="navbar__right">
+            <ul class="navbar__links">
+              <li class="navbar__links--item">
+                <a href="./index.html">HOME</a>
+              </li>
+              <li class="navbar__links--item"><a href="#">ABOUT</a></li>
+              <li class="navbar__links--item">
+                <a href="./Bill.html">BILLS</a>
+              </li>
+            </ul>
+            <!-- icon -->
+            <div class="navbar__icon">
+              <a href="./cart.html"
+                ><i class="fa fa-cart-plus" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container" id="productOpen">
+        <table class="w3-table" id="productCart">
+          <thead>
+            <tr class="title-product">
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Total</th>
+              <th>Clear Cart</th>
+            </tr>
+          </thead>
+          <tbody id="product_cart"></tbody>
+        </table>
+        <span id="total" style="display: flex; justify-content: flex-end">
+        </span>
+        <div class="btn">
+          <a href="./index.html">
+            <button class="btn--back">
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              Back to Shopping
+            </button></a
+          >
+          <button class="btn--buy" id="myBtn">Buy</button>
+        </div>
+      </div>
+      <div class="container" id="productClose">
+        <div class="productClose__img">
+          <img src="./img/Capture.PNG" alt="" class="img" />
+        </div>
+        <div class="btn">
+          <a href="./index.html">
+            <button class="btn--back">
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              Back to Shopping
+            </button></a
+          >
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form action="" method="POST" class="form" id="form-1">
+              <div class="modal-header">
+                <h5 class="modal-title">Thông tin người mua</h5>
+                <button type="button" class="close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="fom-group">
+                  <label for="">Họ và tên</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Tên"
+                    name="name"
+                    rules="required"
+                  />
+                  <span class="form-message"></span>
+                </div>
+                <div class="fom-group">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    placeholder="email@gmail.com"
+                    name="email"
+                    rules="required|email"
+                    id="email"
+                  />
+                  <span class="form-message"></span>
+                </div>
+                <div class="fom-group">
+                  <label for="">Số điên thoại</label>
+                  <input
+                    type="text"
+                    placeholder="Số điện thoại"
+                    id="phone"
+                    name="phone"
+                    rules="required|phone"
+                  />
+                  <span class="form-message"></span>
+                </div>
+                <div class="address form-groups" select>
+                  <div class="infoo"><label for="">Địa chỉ</label></div>
+                  <div class="form-group">
+                    <div class="fom-group">
+                      <select
+                        name="province"
+                        class="form-control"
+                        id="province"
+                        onchange="onChangeProvince()"
+                        rules="required"
+                      >
+                        <option value="">--Chọn Tỉnh/ Thành phố--</option>
+                      </select>
+                      <span class="form-message"></span>
+                    </div>
+                    <div class="fom-group">
+                      <select
+                        name="district"
+                        id="district"
+                        onchange="onChangeDistrict()"
+                        rules="required"
+                      >
+                        <option value="">--Chọn Huyện/Quận--</option>
+                      </select>
+                      <span class="form-message"></span>
+                    </div>
+                    <div class="fom-group">
+                      <select
+                        id="ward"
+                        onchange=""
+                        name="ward"
+                        rules="required"
+                      >
+                        <option value="">--Chọn Phường/Xã--</option>
+                      </select>
+                      <span class="form-message"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fom-group">
+                  <label for="">Lời nhắn</label>
+                  <textarea
+                    type="text"
+                    name="messages"
+                    id="messages"
+                    cols="30"
+                    rows="5"
+                    placeholder=" Message"
+                    name="message"
+                    rules="required|min:1"
+                    rules="required"
+                  ></textarea>
+                  <span class="form-message"></span>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn-secondary"
+                  id="cancel"
+                  data-dismiss="modal"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  class="btn-primary btn-sumbit form-submit"
+                >
+                  Lưu
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      var cancel = document.getElementById("cancel");
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+      cancel.onclick = function () {
+        modal.style.display = "none";
+      };
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+    <script src="./validates.js"></script>
+    <script src="./until.js"></script>
+    <script>
+      Validator({
+        form: "#form-1",
+        errorSelector: ".form-message",
+        rules: [
+          Validator.isRequired("#name", "Vui lòng nhập tên đầy đủ  của bạn"),
+          Validator.isEmail("#email"),
+          Validator.isPhone("#phone"),
+          Validator.isRequired("#province"),
+          Validator.isRequired("#district"),
+          Validator.isRequired("#ward"),
+          Validator.isRequired("#messages"),
+        ],
+        onSubmit: function (data) {
+          console.log(data);
+          let province = document.querySelector(
+            `#province option[value='${data.province}']`
+          ).innerText;
+          console.log(province);
+          let district = document.querySelector(
+            `#district option[value='${data.district}']`
+          ).innerText;
+          let ward = document.querySelector(
+            `#ward option[value='${data.ward}']`
+          ).innerText;
+          console.log(totalPrice);
+          let payload = {
+            fullname: `${data.name}`,
+            phone: `${data.phone}`,
+            address: `${province}` + "-" + `${district}` + "-" + `${ward}`,
+            id: generatedId(),
+            date: generateDate(),
+            message: `${data.message}`,
+            total: `${totalPrice}`,
+          };
+          payload["listOrderProduct"] = getListProductCart();
+          //   payload;
+          //   console.log("du lieu", payload);
+          fetch("http://localhost:3000/productCart", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              const listData = JSON.parse(
+                localStorage.getItem(keyLocalStorageListSP)
+              );
+              const listProductCart = JSON.parse(
+                localStorage.getItem(keyLocalStorageItemCart)
+              );
+              //       console.log(listData);
+              listData.map((item) => {
+                listProductCart.map((index) => {
+                  if (item.id === index.idSanPham) {
+                    item.quantity = item.quantity - index.soLuong;
+                  }
+                });
+              });
+              console.log(listData);
+              localStorage.setItem(
+                keyLocalStorageListSP,
+                JSON.stringify(listData)
+              );
+              localStorage.removeItem(keyLocalStorageItemCart);
+              var productCart = document.querySelector("#productCart");
+              if (productCart) {
+                productCart.remove();
+              }
+              modal.style.display = " none";
+              document.getElementById("total").style.display = "none";
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+
+          //   handleCreateOder(payload);
+        },
+      });
+    </script>
+  </body>
+</html>
